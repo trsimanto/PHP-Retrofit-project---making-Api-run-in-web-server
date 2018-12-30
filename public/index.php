@@ -4,7 +4,11 @@ use \Psr\Http\Message\ResponseInterface as Response;
 require '../vendor/autoload.php';
 require '../includes/DbConnect.php';
 require '../includes/DbOperations.php';
-$app = new \Slim\App;
+$app = new \Slim\App([
+    'settings'=>[
+        'displayErrorDetails'=>true
+    ]
+]);
 /* 
     endpoint: createuser
     parameters: email, password, name, school
@@ -55,7 +59,7 @@ $app->post('/createuser', function(Request $request, Response $response){
 
 
 
-/*
+
 $app->post('/userlogin', function(Request $request, Response $response){
     if(!haveEmptyParameters(array('email', 'password'), $request, $response)){
         $request_data = $request->getParsedBody(); 
@@ -98,6 +102,8 @@ $app->post('/userlogin', function(Request $request, Response $response){
         ->withStatus(422);    
 });
 
+
+/*
 $app->get('/allusers', function(Request $request, Response $response){
     $db = new DbOperations; 
     $users = $db->getAllUsers();
