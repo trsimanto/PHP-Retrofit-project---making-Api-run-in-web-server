@@ -103,7 +103,7 @@ $app->post('/userlogin', function(Request $request, Response $response){
 });
 
 
-/*
+
 $app->get('/allusers', function(Request $request, Response $response){
     $db = new DbOperations; 
     $users = $db->getAllUsers();
@@ -115,7 +115,7 @@ $app->get('/allusers', function(Request $request, Response $response){
     ->withHeader('Content-type', 'application/json')
     ->withStatus(200);  
 });
-
+/*
 $app->put('/updateuser/{id}', function(Request $request, Response $response, array $args){
     $id = $args['id'];
     if(!haveEmptyParameters(array('email','name','school'), $request, $response)){
